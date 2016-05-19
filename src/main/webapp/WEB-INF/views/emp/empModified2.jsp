@@ -28,7 +28,7 @@
 	</script>
 </head>
 <body>
-	<input type="button" id="btn">Ghhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+	<input type="button" id="btn">lweijrlijlk
 </body>
 
 </html>
