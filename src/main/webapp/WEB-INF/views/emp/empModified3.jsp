@@ -28,7 +28,7 @@
 	</script>
 </head>
 <body>
-	<input type="button" id="btn" value="GGG">GG
+	<input type="button" id="btn" value="GGG">GGwonsuk
 </body>
 
 </html>

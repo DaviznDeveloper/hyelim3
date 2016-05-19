@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.davizn.model.EmpDao">
+
+	<!-- insertEmp -->
+	<insert id="insertEmp" parameterType="kr.co.davizn.model.EmpDto">
+		insert into emp (empno,ename,job,mgr,hiredate,sal,comm,deptno)
+		values(#{empno},#{ename},#{job},#{mgr},sysdate,#{sal},#{comm},#{deptno})
+	</insert>
+	
+	<!-- deleteEmp -->
+	<delete id="deleteEmp" parameterType="Integer">
+		delete emp 
+		where empno=#{empno}
+	</delete>
+	
+	<!-- updateEmp -->
+	<update id="updateEmp" parameterType="kr.co.davizn.model.EmpDto">
+		update emp
+		set job=#{job},sal=#{sal},comm=#{comm},deptno=#{deptno}
+		where empno=#{empno}
+	</update>
+	
+	<!-- getEmp -->
+	 <select id="getEmp" parameterType="int" resultType="kr.co.davizn.model.EmpDto">
+		select empno,ename,job,mgr,hiredate,sal,comm,deptno
+		from emp where empno=#{empno}
+	</select> 
+	
+	<!-- getEmpList -->
+	<select id="getEmpList" resultType="kr.co.davizn.model.EmpDto">
+		select empno,ename,job,mgr,hiredate,sal,comm,deptno 
+		from emp
+	</select>
+	
+	<select id="getSearch1" parameterType="hashmap" resultType="kr.co.davizn.model.EmpDto">
+		select empno,ename,job,mgr,hiredate,sal,comm,deptno
+		from emp where ${column} like '%${keyvalue}%'
+	</select>
+	
+	<select id="getSearch2" resultType="kr.co.davizn.model.EmpDto">
+		select *
+		from emp 
+		<trim prefix="where" prefixOverrides="or">
+			<if test="#{param1.empno} != null">
+				 empno like '%${param2}%'
+			</if>
+			<if test="#{param1.ename} != null">
+				 or ename like '%${param2}%' 
+			</if>
+			<if test="#{param1.job} != null">
+				 or job like '%${param2}%'
+			</if>
+			<if test="#{param1.sal} != null">
+				 or sal like '%${param2}%'
+			</if>
+			<if test="#{param1.deptno} != null">
+				 or deptno like '%${param2}%'
+			</if>
+		</trim>
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
