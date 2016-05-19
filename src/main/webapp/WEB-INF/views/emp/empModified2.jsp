@@ -28,7 +28,11 @@
 	</script>
 </head>
 <body>
+<<<<<<< HEAD
 	<input type="button" id="btn">N'ot
+=======
+	<input type="button" id="btn">Ghhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+>>>>>>> branch 'hyelim' of https://github.com/DaviznDeveloper/hyelim3
 </body>
 
 </html>
